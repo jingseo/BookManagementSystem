@@ -16,7 +16,7 @@ public class Menu {
 			System.out.print("책: ");
 			String BookName = input.next();
 			System.out.print("전체쪽수: ");
-			String BookPage = input.next();
+			int BookPage = input.nextInt();
 			break;
 			
 		}
@@ -25,7 +25,7 @@ public class Menu {
 			System.out.print("책: ");
 			String Name = input.next();
 			System.out.print("읽은 쪽수: ");
-			String Page = input.next();
+			int Page = input.nextInt();
 			break;
 			
 		}
