@@ -9,32 +9,51 @@ public class Menu {
 		System.out.println("1.Add Book");
 		System.out.println("2.Edit Book page");
 		System.out.println("3.Delete Book");
-		System.out.println("5.Exit");
+		System.out.println("4.Exit");
 		System.out.println("Select one number between 1-4: ");
 		num = input.nextInt();
-		if (num ==1) {
-			System.out.print("책: ");
-			String BookName = input.next();
-			System.out.print("전체쪽수: ");
-			int BookPage = input.nextInt();
-			break;
-			
+		if(num ==1) {
+			addBook1();
 		}
-		
-		if (num==2) {
-			System.out.print("책: ");
-			String Name = input.next();
-			System.out.print("읽은 쪽수: ");
-			int Page = input.nextInt();
-			break;
-			
+		else if(num ==2) {
+			editBookPage();
 		}
-		
-		if (num ==3) {
-			
+		else if(num ==3) {
+			deleteBook();
 		}
-		
+		else {
+			continue;
+		}
 	}
 	}
 
+
+public static void addBook1() {
+	Scanner input = new Scanner(System.in);
+	System.out.print("Book Name: ");
+	String BookName = input.next();
+	System.out.println(BookName);
+	System.out.print("Book Writer: ");
+	String BookWriter = input.next();
+	System.out.println(BookWriter);
 }
+
+public static void editBookPage() {
+	Scanner input = new Scanner(System.in);
+	System.out.print("Book Page: ");
+	int BookPage = input.nextInt();
+	
+}
+public static void deleteBook() {
+	Scanner input = new Scanner(System.in);
+	System.out.print("Book Name: ");
+	String BookName = input.next();	
+}
+
+
+}
+
+
+
+
+	
