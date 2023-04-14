@@ -10,7 +10,7 @@ public class Menu {
 		System.out.println("1.Add Book");
 		System.out.println("2.Edit Book page");
 		System.out.println("3.Delete Book");
-		System.out.println("4.View Book");
+		System.out.println("4.View Books");
 		System.out.println("5.Exit");
 		System.out.println("Select one number between 1-5: ");
 		num = input.nextInt();
