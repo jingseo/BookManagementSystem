@@ -1,4 +1,8 @@
 import java.util.Scanner;
+import java.util.*; 
+
+import book.Book;
+
 import java.util.ArrayList;
 
 public class BookManager {
@@ -8,17 +12,35 @@ public class BookManager {
 		this.input = input;
 	}
 	
-	public void addBook1() {
-		Book book = new Book();
-		System.out.print("Book Num: ");
-		book.BookNum = input.nextInt();
-		System.out.print("Book Name: ");
-		book.BookName = input.next();
-		System.out.print("Book Writer: ");
-		book.BookWriter = input.next();
-		System.out.print("BookPage:");
-		book.BookPage = input.nextInt();
-		books.add(book);
+	public void addBook() {
+		int kind = 0;
+        Book book;
+		while (kind != 1 && kind != 2){
+		System.out.print("1 for Essay");
+		System.out.print("2 for Novel");
+		System.out.print("Select num for Book Kind between 1 and 2:");
+		kind = input.nextInt();
+		if(kind == 1){
+			book = new Book();
+			book.getUserInput(input);
+			books.add(book);
+			break;
+		} 
+		else if (kind == 2){
+			book = new book.NovelBook();
+			book.getUserInput(input);
+			books.add(book);
+			break;
+		}
+		else{
+		System.out.print("Select num for Student Kind between 1 and 2:");
+			}
+		}
+	}
+
+	private Book NovelBook() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public void deleteBook() {
@@ -26,7 +48,7 @@ public class BookManager {
 	    int bookNum = input.nextInt();
 	    int index = -1;
 	    for(int i = 0 ; i<books.size(); i++) {
-	    	if (books.get(i).BookNum == bookNum) {
+	    	if (books.get(i).getBookNum() == bookNum) {
 		        index = i;
 		        break;
 	    	}
@@ -46,7 +68,7 @@ public class BookManager {
 	    int bookNum = input.nextInt();
 	    for(int i = 0 ; i<books.size(); i++) {
 	    	Book book = books.get(i);
-	    	if(book.BookNum == bookNum) {
+	    	if(book.getBookNum() == bookNum) {
 	    		int num = -1;
 	    		while (num !=4) {
 	    			System.out.println("1.Book Num");
@@ -57,19 +79,23 @@ public class BookManager {
 	    			num = input.nextInt();
 	    			if(num ==1) {
 	    				System.out.print("BookNum: ");
-	    				book.BookNum = input.nextInt();
+	    				int BookNum = input.nextInt();
+	    				book.setBookNum(BookNum);
 	    			}
 	    			else if(num ==2) {
 	    				System.out.print("BookName: ");
-	    				book.BookName = input.next();
+	    				String BookName = input.next();
+	    				book.setBookName(BookName);
 	    			}
 	    			else if(num ==3) {
 	    				System.out.print("BookWriter:");
-	    				book.BookWriter = input.next();
+	    				String BookWriter = input.next();
+	    				book.setBookWriter(BookWriter);
 	    			}
 	    			else if(num ==4) {
 	    				System.out.print("BookPage:");
-	    				book.BookPage = input.nextInt();
+	    				int BookPage = input.nextInt();
+	    				book.setBookPage(BookPage);
 	    			}
 	    			else {
 	    			continue;

@@ -15,7 +15,7 @@ public class Menu {
 		System.out.println("Select one number between 1-5: ");
 		num = input.nextInt();
 		if(num ==1) {
-			bookManager.addBook1();
+			bookManager.addBook();
 		}
 		else if(num ==2) {
 			bookManager.editBookPage();
