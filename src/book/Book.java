@@ -2,7 +2,7 @@ package book;
 
 import java.util.Scanner;
 
-public class Book {
+public abstract class Book {
 
 	protected int BookNum;
 	protected String BookWriter;
@@ -74,9 +74,7 @@ public class Book {
 	}
 
 	
-	public void printInfo() {
-		System.out.println("BookNum:"+ BookNum + "BookName:"+ BookName + "BookWriter:"+ BookWriter+ "BookPage:"+ BookPage);
-	}
+	public abstract void printInfo();
 	
 	public void getUserInput(Scanner input) {
 		System.out.print("Book Num: ");

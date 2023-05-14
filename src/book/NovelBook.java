@@ -2,7 +2,12 @@ package book;
 
 import java.util.Scanner;
 
-public class NovelBook extends Book {
+public class NovelBook extends Book implements BookInput {
+	
+	public NovelBook(BookKind kind) {
+		super();
+	}
+	
 	public void getUserInput(Scanner input) {
 		System.out.print("Book Num: ");
 		int BookNum = input.nextInt();
@@ -31,8 +36,24 @@ public class NovelBook extends Book {
 		}
 	}
 		
+		
 		System.out.print("BookPage:");
 		int BookPage = input.nextInt();
 		this.setBookPage(BookPage);
 		}
+	
+	public void printInfo() {
+		String skind = "none";
+		switch(this.kind) {
+		case Essay:
+			skind = " Essay";
+			break;
+		case Novel:
+			skind = "Novel";
+			break;
+		default:	
+		}
+		
+		System.out.println("BookNum:"+ BookNum + "BookName:"+ BookName + "BookWriter:"+ BookWriter+ "BookPage:"+ BookPage);
+	}
 		}
