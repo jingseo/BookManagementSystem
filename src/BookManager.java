@@ -36,7 +36,7 @@ public class BookManager {
 			break;
 		}
 		else if (kind == 3){
-			bookInput = (BookInput) new book.NovelBook(null);
+			bookInput = (BookInput) new book.ScienceBook(null);
 			bookInput.getUserInput(input);
 			books.add(bookInput);
 			break;
