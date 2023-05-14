@@ -21,7 +21,7 @@ public class ScienceBook extends Book implements BookInput {
 		String BookWriter = input.next();
 		this.setBookWriter(BookWriter);
 		
-		System.out.print("BookPage:");
+		System.out.print("BookPage: ");
 		int BookPage = input.nextInt();
 		this.setBookPage(BookPage);
 	}
@@ -32,9 +32,15 @@ public class ScienceBook extends Book implements BookInput {
 		case Essay:
 			skind = " Essay";
 			break;
+			
 		case Novel:
 			skind = "Novel";
 			break;
+			
+		case Science:
+			skind = "Science";
+			break;
+			
 		default:	
 		}
 		

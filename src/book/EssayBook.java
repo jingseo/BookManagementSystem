@@ -40,9 +40,15 @@ public class EssayBook extends Book implements BookInput {
 		case Essay:
 			skind = " Essay";
 			break;
+			
 		case Novel:
 			skind = "Novel";
 			break;
+			
+		case Science:
+			skind = "Science";
+			break;
+			
 		default:	
 		}
 		
