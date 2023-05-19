@@ -2,13 +2,15 @@ package book;
 
 import java.util.Scanner;
 
-public class ScienceBook extends Book implements BookInput {
+import exception.WiterFormatException;
+
+public class ScienceBook extends Book  {
 	
 	public ScienceBook(BookKind kind) {
 		super();
 	}
 	
-	public void getUserInput(Scanner input) {
+	public void getUserInput(Scanner input) throws WiterFormatException {
 		System.out.print("Book Num: ");
 		int BookNum = input.nextInt();
 		this.setBookNum(BookNum);
@@ -45,6 +47,18 @@ public class ScienceBook extends Book implements BookInput {
 		}
 		
 		System.out.println("BookNum:"+ BookNum + "BookName:"+ BookName + "BookWriter:"+ BookWriter+ "BookPage:"+ BookPage);
+	}
+
+	@Override
+	public void setBookWriter(Scanner input) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setBookPage(Scanner input) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

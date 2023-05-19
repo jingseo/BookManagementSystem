@@ -4,6 +4,7 @@ import java.util.*;
 import book.Book;
 import book.BookInput;
 import book.BookKind;
+import exception.WiterFormatException;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,8 @@ public class BookManager {
 	public void addBook() {
 		int kind = 0;
         BookInput bookInput;
-		while (kind != 1 && kind != 2){
+		while (kind< 1 || kind >3){
+			try {
 		System.out.print("1 for Essay");
 		System.out.print("2 for Novel");
 		System.out.print("3 for Science");
@@ -45,6 +47,18 @@ public class BookManager {
 		System.out.print("Select num for Student Kind between 1 and 2 and 3 :");
 			}
 		}
+			catch(InputMismatchException e){
+				
+				System.out.println("Please put an integer between 1 and 5!");
+				if(input.hasNext()) {
+					input.next();
+				}
+				kind = -1;
+			} catch (WiterFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 	private Book NovelBook() {
@@ -55,24 +69,38 @@ public class BookManager {
 	public void deleteBook() {
 	    System.out.print("BookNum:");
 	    int bookNum = input.nextInt();
-	    int index = -1;
+	    int index =  findIndex(bookNum);
+	    removedfromBook(index, bookNum);
+	 }
+	
+	public int findIndex(int bookNum) {
+		int index = -1;
 	    for(int i = 0 ; i<books.size(); i++) {
 	    	if (books.get(i).getBookNum() == bookNum) {
 		        index = i;
 		        break;
-	    	}
+		       }
+	      }
+	    return index;
+	}
+	    
+	    public int removedfromBook(int index, int bookNum) {
+	    	
+	    	 if(index >= 0) {
+	 	    	books.remove(index);
+	 	    	System.out.println("the book" + bookNum + "is deleted");
+	 	    	return 1;
+	 	    }
+	 	     else {
+	 	        System.out.println("The book does not exist");
+	 	        return -1;
+	    	
 	    }
-	    if(index >= 0) {
-	    	books.remove(index);
-	    	System.out.println("the book" + bookNum + "is deleted");
-	    }
-	     else {
-	        System.out.println("The book does not exist");
-	        return;
-	    }
+	    
+	    
 	}
 
-	public void editBookPage() {
+	public void editBookPage() throws WiterFormatException {
 	    System.out.print("BookNum:");
 	    int bookNum = input.nextInt();
 	    for(int i = 0 ; i<books.size(); i++) {
@@ -80,42 +108,65 @@ public class BookManager {
 	    	if(bookInput.getBookNum() == bookNum) {
 	    		int num = -1;
 	    		while (num !=4) {
-	    			System.out.println("1.Book Num");
-	    			System.out.println("2.Book Name");
-	    			System.out.println("3.Book Writer");
-	    			System.out.println("4.Book Page");
-	    			System.out.println("Select one number between 1-5: ");
+	    			showEditMenu();
 	    			num = input.nextInt();
-	    			if(num ==1) {
-	    				System.out.print("BookNum: ");
-	    				int BookNum = input.nextInt();
-	    				bookInput.setBookNum(BookNum);
+	    			BookInput book = null;
+					switch(num) {
+	    			case 1:
+	    				setBookNum(book, input);
+	    				break;
+	    			case 2:
+	    				 setBookName(book, input);
+	    				 break;
+	    			case 3:	
+	    				setBookWriter(book, input);
+	    				break;
+	    		    case 4:
+	    		    	setBookPage(book, input);
+	    		    	break;
+	    		    default :
+	    		    	continue;
 	    			}
-	    			else if(num ==2) {
-	    				System.out.print("BookName: ");
-	    				String BookName = input.next();
-	    				bookInput.setBookName(BookName);
-	    			}
-	    			else if(num ==3) {
-	    				System.out.print("BookWriter:");
-	    				String BookWriter = input.next();
-	    				bookInput.setBookWriter(BookWriter);
-	    			}
-	    			else if(num ==4) {
-	    				System.out.print("BookPage:");
-	    				int BookPage = input.nextInt();
-	    				bookInput.setBookPage(BookPage);
-	    			}
-	    			else {
-	    			continue;
-	    			} //if
 	    	} // while
 	    		break;
 	    	}//if
 	    }//for
 	}
-	    	
-
+	
+	public void showEditMenu() {
+		
+		System.out.println("1.Book Num");
+		System.out.println("2.Book Name");
+		System.out.println("3.Book Writer");
+		System.out.println("4.Book Page");
+		System.out.println("Select one number between 1-5: ");
+		
+	}
+	
+	public void setBookNum(BookInput book , Scanner input) {
+		System.out.print("BookNum: ");
+		int BookNum = input.nextInt();
+		book.setBookNum(BookNum);	
+	}
+	
+	public void setBookName(BookInput book , Scanner input) {
+		System.out.print("BookName: ");
+		String BookName = input.next();
+		book.setBookName(BookName);
+	}
+	
+	public void setBookWriter(BookInput book , Scanner input) throws WiterFormatException {
+		System.out.print("BookWriter:");
+		String BookWriter = input.next();
+		book.setBookWriter(BookWriter);
+	}
+	
+	public void setBookPage(BookInput book , Scanner input) {
+		System.out.print("BookPage:");
+		int BookPage = input.nextInt();
+		book.setBookPage(BookPage);
+	}
+	
 	public void viewBook() {
 //	    System.out.print("BookNum:");
 //	    int bookNum = input.nextInt();

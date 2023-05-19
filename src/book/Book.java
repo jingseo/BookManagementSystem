@@ -2,7 +2,9 @@ package book;
 
 import java.util.Scanner;
 
-public abstract class Book {
+import exception.WiterFormatException;
+
+public abstract class Book implements BookInput {
 
 	protected int BookNum;
 	protected String BookWriter;
@@ -53,8 +55,11 @@ public abstract class Book {
 		return BookWriter;
 	}
 
-	public void setBookWriter(String bookWriter) {
-		BookWriter = bookWriter;
+	public void setBookWriter(String bookWriter) throws WiterFormatException {
+		if (!bookWriter.contains ("@") || !bookWriter.equals("")) {
+			throw new WiterFormatException();
+		}
+		this.BookWriter = bookWriter;
 	}
 
 	public String getBookName() {
@@ -76,7 +81,53 @@ public abstract class Book {
 	
 	public abstract void printInfo();
 	
-	public void getUserInput(Scanner input) {
+	public void setBookNum(Scanner input) {
+		System.out.print("BookNum: ");
+		int BookNum = input.nextInt();
+		this.setBookNum(BookNum);	
+	}
+	
+	public void setBookName(Scanner input) {
+		System.out.print("BookName: ");
+		String BookName = input.next();
+		this.setBookName(BookName);
+	}
+	
+	public void setBookWriter(Scanner input) {
+		String BookWiter = "";
+		while(! BookWiter.contains("@")) {
+		System.out.print("Book Writer: ");
+		BookWriter = input.next();
+		try {
+		this.setBookWriter(BookWriter);
+		} catch(WiterFormatException e) {
+			System.out.println("Incorrect Witer Format. put the Witer that contains @");
+		}
+		}
+	}
+	
+	
+	public String getKindString() {
+		String skind = "none";
+		switch(this.kind) {
+		case Essay:
+			skind = " Essay";
+			break;
+			
+		case Novel:
+			skind = "Novel";
+			break;
+			
+		case Science:
+			skind = "Science";
+			break;
+			
+		default:
+		}
+		return skind;
+	}
+	
+	public void getUserInput(Scanner input) throws WiterFormatException {
 		System.out.print("Book Num: ");
 		int BookNum = input.nextInt();
 		this.setBookNum(BookNum);
