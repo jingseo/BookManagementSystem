@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 import java.util.*; 
 
 import book.Book;
@@ -20,9 +21,9 @@ public class BookManager {
         BookInput bookInput;
 		while (kind< 1 || kind >3){
 			try {
-		System.out.print("1 for Essay");
-		System.out.print("2 for Novel");
-		System.out.print("3 for Science");
+		System.out.println("1 for Essay");
+		System.out.println("2 for Novel");
+		System.out.println("3 for Science");
 		System.out.print("Select num for Book Kind 1 or 2 or 3:");
 		kind = input.nextInt();
 		if(kind == 1){

@@ -24,7 +24,7 @@ public interface BookInput {
 	
 	public void setBookName(Scanner input);
 	
-	public void setBookWriter( Scanner input);
+	public void setBookWriter( Scanner input) throws WiterFormatException;
 	
 	public void setBookPage(Scanner input);	
 	

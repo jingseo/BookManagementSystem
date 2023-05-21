@@ -55,12 +55,19 @@ public abstract class Book implements BookInput {
 		return BookWriter;
 	}
 
-	public void setBookWriter(String bookWriter) throws WiterFormatException {
-		if (!bookWriter.contains ("@") || !bookWriter.equals("")) {
-			throw new WiterFormatException();
-		}
-		this.BookWriter = bookWriter;
+	public void setBookWriter(Scanner input) throws WiterFormatException {
+	    String BookWriter = "";
+	    while (!BookWriter.contains("@")) {
+	        System.out.print("Book Writer: ");
+	        BookWriter = input.next();
+	        if (!BookWriter.contains("@")) {
+	            throw new WiterFormatException();
+	        }
+	        this.setBookWriter(BookWriter);
+	    }
 	}
+
+
 
 	public String getBookName() {
 		return BookName;
@@ -92,20 +99,6 @@ public abstract class Book implements BookInput {
 		String BookName = input.next();
 		this.setBookName(BookName);
 	}
-	
-	public void setBookWriter(Scanner input) {
-		String BookWiter = "";
-		while(! BookWiter.contains("@")) {
-		System.out.print("Book Writer: ");
-		BookWriter = input.next();
-		try {
-		this.setBookWriter(BookWriter);
-		} catch(WiterFormatException e) {
-			System.out.println("Incorrect Witer Format. put the Witer that contains @");
-		}
-		}
-	}
-	
 	
 	public String getKindString() {
 		String skind = "none";
