@@ -15,6 +15,7 @@ public class NovelBook extends ABook {
 	    setBookName(input);
 	    setBookWiterwithYN(input);
 		setBookPage(input);
+		setBookWriter(input);
 		
 		}
 	
@@ -31,6 +32,12 @@ public class NovelBook extends ABook {
 
 	@Override
 	public void setBookWriter(String bookWriter) throws WiterFormatException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setBookPage(Scanner input) {
 		// TODO Auto-generated method stub
 		
 	}

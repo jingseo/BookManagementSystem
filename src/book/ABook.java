@@ -1,37 +1,32 @@
-	package book;
+package book;
 
 import java.util.Scanner;
-
 import exception.WiterFormatException;
 
+
 public abstract class ABook extends Book {
-	
+
 	public ABook(BookKind kind) {
 		super();
 	}
-	
-	@Override
-	public void setBookWriter(Scanner input) throws WiterFormatException {
-	    System.out.print("Book Writer: ");
-	    String bookWriter = input.next();
-	    this.setBookWriter(bookWriter);
+
+	public ABook(int bookNum, String bookName, String bookWriter, int bookPage) {
+		super(bookNum, bookName, bookWriter, bookPage);
 	}
-	
+
 	@Override
-	public void setBookPage(Scanner input) {
-		// TODO Auto-generated method stub
-		 System.out.print("Book Page: ");
-		    int bookPage = input.nextInt();
-		    this.setBookPage(bookPage);
-		
-	}
-	
+	public abstract void getUserInput(Scanner input);
+
 	@Override
 	public void printInfo() {
 		String skind = getKindString();
 		System.out.println("BookNum:" + BookNum + "BookName:" + BookName + "BookWriter:" + BookWriter + "BookPage:" + BookPage);
 	}
-	
+
+	public void setBookPage(int bookPage) {
+		this.BookPage = bookPage;
+	}
+
 	public void setBookWiterwithYN(Scanner input) {
 		char answer = 'x';
 		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {

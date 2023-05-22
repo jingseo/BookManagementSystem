@@ -47,7 +47,7 @@ public class MenuManager {
 	}
 	
 	public static void showMenu() {
-		
+	     System.out.println("**** Book Management System Menu ****");
 		System.out.println("1.Add Book");
 		System.out.println("2.Edit Book page");
 		System.out.println("3.Delete Book");
