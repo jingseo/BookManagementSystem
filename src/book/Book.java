@@ -1,16 +1,22 @@
 package book;
 
+import java.io.Serializable;
 import java.util.Scanner;
+
 import exception.WiterFormatException;
 
-public abstract class Book implements BookInput {
+public abstract class Book implements BookInput, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8359615610118796787L;
 	protected int BookNum;
 	protected String BookWriter;
 	protected String BookName;
 	protected int BookPage;
 	protected BookKind kind = BookKind.Novel;
-	
+
 	public Book() {
 
 	}
@@ -55,22 +61,22 @@ public abstract class Book implements BookInput {
 	}
 
 	public void setBookWriter(Scanner input) {
-        String bookWriter = "";
-        boolean isValidFormat = false;
-        
-        while (!isValidFormat) {
-            System.out.print("Book Writer: ");
-            bookWriter = input.next();
-            
-            if (bookWriter.contains("@")) {
-                isValidFormat = true;
-            } else {
-                System.out.println("Incorrect writer format. Writer name should contain '@'.");
-            }
-        }
-        
-        BookWriter = bookWriter;
-    }
+		String bookWriter = "";
+		boolean isValidFormat = false;
+
+		while (!isValidFormat) {
+			System.out.print("Book Writer: ");
+			bookWriter = input.next();
+
+			if (bookWriter.contains("@")) {
+				isValidFormat = true;
+			} else {
+				System.out.println("Incorrect writer format. Writer name should contain '@'.");
+			}
+		}
+
+		BookWriter = bookWriter;
+	}
 
 
 	public String getBookName() {
@@ -86,9 +92,9 @@ public abstract class Book implements BookInput {
 	}
 
 	@Override
-    public void setBookPage(int bookPage) {
-        this.BookPage = bookPage;
-    }
+	public void setBookPage(int bookPage) {
+		this.BookPage = bookPage;
+	}
 
 
 	public abstract void printInfo();
