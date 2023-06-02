@@ -6,9 +6,14 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
-
 public class BookViewer  extends JFrame{
-	public BookViewer() {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1567423587346240257L;
+
+	public void BookViewer() {
 		DefaultTableModel model = new DefaultTableModel();
 		
 		model.addColumn("Id");
@@ -17,7 +22,7 @@ public class BookViewer  extends JFrame{
 		model.addColumn("Contact info.");
 
 		
-		JTable table = new JTable(new DefaultTableModel());
+		JTable table = new JTable(model);
 		JScrollPane sp = new JScrollPane(table);
 		
 		this.add(sp);
@@ -25,5 +30,6 @@ public class BookViewer  extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
+
 
 }

@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MenuSelection extends JFrame {
-	public MenuSelection() {
+	public void Selection() {
 		this.setSize(300,300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);

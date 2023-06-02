@@ -9,7 +9,13 @@ import javax.swing.SpringLayout;
 
 public class BookAdder extends JFrame {
 	
-	public BookAdder() {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4536848227844096329L;
+	
+	public void Adder() {
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
 		
@@ -44,6 +50,7 @@ public class BookAdder extends JFrame {
 		
 		this.setSize(300,300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		this.setContentPane(panel);
 		this.setVisible(true);
 	}
