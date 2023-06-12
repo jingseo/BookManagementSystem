@@ -29,7 +29,8 @@ public interface BookInput {
 	public String getBookWriter(String name);
 	public int getBookPage(int page);
 
-	public void setBookPage(Scanner input);	
+	public void setBookPage(Scanner input);
+	public Object getBookWriter();	
 
 
 }

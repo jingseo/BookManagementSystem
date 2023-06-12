@@ -15,12 +15,7 @@ public class MenuSelection extends JPanel {
 	
 
 	public MenuSelection(WindowFrame windowFrame) {
-		// TODO Auto-generated constructor stub
-	}
-
-
-	public void MenuSelection(WindowFrame frame) {
-		this.frame = frame;
+		this.frame = windowFrame;
 		
 		this.setLayout(new BorderLayout());
 		
@@ -47,8 +42,5 @@ public class MenuSelection extends JPanel {
 
 		this.add(panel1, BorderLayout.NORTH);
 		this.add(panel2, BorderLayout.CENTER);
-		
-		
 	}
-
 }

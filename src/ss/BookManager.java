@@ -168,4 +168,9 @@ public class BookManager implements Serializable {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public BookInput[] getBookList() {
+	    BookInput[] bookList = new BookInput[books.size()];
+	    return books.toArray(bookList);
+	}
 }
