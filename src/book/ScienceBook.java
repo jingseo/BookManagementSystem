@@ -62,9 +62,21 @@ public class ScienceBook extends Book  {
 	}
 
 	@Override
-	public void setBookWriter(String bookWriter) throws WiterFormatException {
+	public void setBookWriter(String bookWriter) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public String getBookWriter(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getBookPage(int page) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 

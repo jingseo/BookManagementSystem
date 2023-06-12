@@ -33,18 +33,14 @@ public abstract class ABook extends Book {
 		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {
 			System.out.print("Do you have a Book Writer? (Y/N)");
 			answer = input.next().charAt(0);
-			try {
-				if (answer == 'y' || answer == 'Y') {
-					setBookWriter(input);
-					break;
-				} else if (answer == 'n' || answer == 'N') {
-					this.setBookWriter("");
-					break;
-				} else {
-					throw new IllegalArgumentException("Invalid input. Please enter 'Y' or 'N'.");
-				}
-			} catch (WiterFormatException e) {
-				System.out.println("Incorrect Writer Format. Put the Writer that contains '@'");
+			if (answer == 'y' || answer == 'Y') {
+				setBookWriter(input);
+				break;
+			} else if (answer == 'n' || answer == 'N') {
+				this.setBookWriter("");
+				break;
+			} else {
+				throw new IllegalArgumentException("Invalid input. Please enter 'Y' or 'N'.");
 			}
 		}
 	}

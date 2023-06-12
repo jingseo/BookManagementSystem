@@ -1,7 +1,6 @@
 package book;
 
 import java.util.Scanner;
-import exception.WiterFormatException;
 
 public class EssayBook extends ABook {
 
@@ -29,7 +28,7 @@ public class EssayBook extends ABook {
 	}
 
 	@Override
-	public void setBookWriter(String bookWriter) throws WiterFormatException {
+	public void setBookWriter(String bookWriter) {
 		// TODO Auto-generated method stub
 
 	}
@@ -39,5 +38,17 @@ public class EssayBook extends ABook {
 		System.out.print("BookPage: ");
 		int bookPage = input.nextInt();
 		this.setBookPage(bookPage);
+	}
+
+	@Override
+	public String getBookWriter(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getBookPage(int page) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

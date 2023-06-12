@@ -1,34 +1,48 @@
 package gui;
 
+
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
-public class BookViewer  extends JFrame{
+import book.BookInput;
+import ss.BookManager;
+import java.util.Vector;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1567423587346240257L;
+public class BookViewer  extends JPanel {
+	WindowFrame frame;
+	BookManager bookManager;
 
-	public void BookViewer() {
+	public BookViewer(WindowFrame frame, BookManager bookManager) {
+		this.frame = frame;
+		this.bookManager = bookManager;
+
+		System.out.println("****"+ bookManager.size()+"****");
+
 		DefaultTableModel model = new DefaultTableModel();
-		
 		model.addColumn("Id");
 		model.addColumn("Name");
 		model.addColumn("Writer");
 		model.addColumn("Contact info.");
 
-		
+		for(int i =0; i<bookManager.size(); i++) {
+			Vector row = new Vector();
+			BookInput bi = bookManager.get(i);
+			row.add(bi.getBookNum());
+			row.add(bi.getBookWriter(getName()));
+			row.add(bi.getBookPage(i));
+			model.addRow(row);
+		}
+
+
 		JTable table = new JTable(model);
 		JScrollPane sp = new JScrollPane(table);
-		
+
 		this.add(sp);
-		this.setSize(300,300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setVisible(true);
+
 	}
 
 

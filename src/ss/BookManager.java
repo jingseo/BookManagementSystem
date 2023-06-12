@@ -1,11 +1,12 @@
+package ss;
 import java.util.Scanner;
-import java.io.Serializable;
-import java.security.PublicKey;
 import java.util.ArrayList;
 import book.Book;
 import book.BookInput;
 import book.BookKind;
 import exception.WiterFormatException;
+
+import java.io.Serializable;
 import java.util.*; 
 
 public class BookManager implements Serializable {
@@ -137,9 +138,12 @@ public class BookManager implements Serializable {
 		}//for
 	}
 
-	private void setBookNum(BookInput book, Scanner input2) {
-		// TODO Auto-generated method stub
-
+	public int size() {
+		return books.size();
+	}
+	
+	public BookInput get(int index) {
+		return (Book) books.get(index);
 	}
 
 	public void showEditMenu() {
@@ -158,5 +162,10 @@ public class BookManager implements Serializable {
 		for(int i =0; i<books.size(); i++) {
 			books.get(i).printInfo();
 		}
+	}
+
+	public void setScanner(Scanner input2) {
+		// TODO Auto-generated method stub
+		
 	}
 }

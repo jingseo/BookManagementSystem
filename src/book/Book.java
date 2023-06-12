@@ -11,14 +11,21 @@ public abstract class Book implements BookInput, Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 8359615610118796787L;
+
+	protected BookKind kind = BookKind.Novel;
 	protected int BookNum;
 	protected String BookWriter;
 	protected String BookName;
 	protected int BookPage;
-	protected BookKind kind = BookKind.Novel;
+
+	private String writer;
 
 	public Book() {
 
+	}
+	
+	public Book(BookKind kind) {
+		this.kind = kind;
 	}
 
 	public Book(int BookNum, String BookName ) {
@@ -41,7 +48,7 @@ public abstract class Book implements BookInput, Serializable {
 	}
 
 	public BookKind getKind() {
-		return kind;
+		return getKind();
 	}
 
 	public void setKind(BookKind kind) {
@@ -58,6 +65,10 @@ public abstract class Book implements BookInput, Serializable {
 
 	public String getBookWriter() {
 		return BookWriter;
+	}
+	
+	public void setBookWriter(String writer) {
+		this.writer = writer;
 	}
 
 	public void setBookWriter(Scanner input) {

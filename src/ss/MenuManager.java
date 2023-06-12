@@ -1,3 +1,4 @@
+package ss;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
@@ -7,7 +8,9 @@ import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import exception.WiterFormatException;
+import gui.WindowFrame;
 import log.EventLogger;
+import ss.BookManager;
 
 
 public class MenuManager {
@@ -15,20 +18,20 @@ public class MenuManager {
 	static EventLogger logger = new EventLogger("log.txt");
 
 
-	public static void main(String[] args) throws WiterFormatException {
+	public static void main(String[] args) throws WiterFormatException, ClassNotFoundException {
+		
 		Scanner input = new Scanner(System.in);
-
 		BookManager bookManager = getObject("bookmanager.ser");
+		
 		if(bookManager == null) {
 			bookManager = new BookManager(input);
 		}
-		selectMenu(input, bookManager);
-		try {
-			putObject(bookManager, "bookmanager.ser");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		else {
+			bookManager.setScanner(input);
 		}
+		WindowFrame windowframe = new WindowFrame(bookManager);
+		selectMenu(input, bookManager);
+		putObject(bookManager,"bookmanager.ser");
 	}
 
 	private static BookManager getObject(String string) {

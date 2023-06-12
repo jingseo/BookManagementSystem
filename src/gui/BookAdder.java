@@ -7,14 +7,17 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
-public class BookAdder extends JFrame {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -4536848227844096329L;
-	
-	public void Adder() {
+public class BookAdder extends JPanel {
+
+	WindowFrame frame;
+
+	public BookAdder(WindowFrame windowFrame) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public void BookAdder(WindowFrame frame) {
+
+		this.frame = frame;
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
@@ -48,10 +51,7 @@ public class BookAdder extends JFrame {
 		
 		SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6);
 		
-		this.setSize(300,300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		this.setContentPane(panel);
+		this.add(panel);
 		this.setVisible(true);
 	}
 
